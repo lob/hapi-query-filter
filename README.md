@@ -65,3 +65,31 @@ Will cause a request like `?first_name=John&last_name=Doe&count=10&offset=0` to 
   }
 }
 ```
+
+# Enabling at the Route Level
+If `defaultEnabled: false` you will need to enable the plugin an a per-route basis by doing the following:
+```javascript
+var Hapi = require('hapi');
+var server = new Hapi.Server();
+
+server.register([
+  {
+    register: require('hapi-query-filter')
+  }
+], function (err) {
+  // An error will be available here if anything goes wrong
+});
+
+server.route({
+  method: 'GET',
+  path: '/test',
+  config: {
+    handler: function (request, reply) { ... },
+    plugins: {
+      queryFilter: {
+        enabled: true
+      }
+    }
+  }
+})
+```
