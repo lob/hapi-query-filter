@@ -6,10 +6,19 @@
 
 The purpose of this plugin is to convert query parameters into a single filter object that is accessible via `request.query.filter`.
 
+For example: `?first_name=John&last_name=Doe` would create a `request.query` that looks like
+```javascript
+{
+  filter: {
+    first_name: 'John',
+    last_name: 'Doe'
+  }
+}
+```
+
 # Registering the Plugin
 ```javascript
 var Hapi = require('hapi');
-
 var server = new Hapi.Server();
 
 server.register([
@@ -23,4 +32,36 @@ server.register([
 ], function (err) {
   // An error will be available here if anything goes wrong
 });
+```
+
+# Ignoring Keys
+You can ignore keys to have them stay at the root level of `request.query`. A configuration of:
+
+```javascript
+var Hapi = require('hapi');
+var server = new Hapi.Server();
+
+server.register([
+  {
+    register: require('hapi-query-filter'),
+    options: {
+      ignoredKeys: ['count', 'offset'], // Array of query parameters not to convert to filter object
+      defaultEnabled: true // if true plugin will be used on all routes
+    }
+  }
+], function (err) {
+  // An error will be available here if anything goes wrong
+});
+```
+
+Will cause a request like `?first_name=John&last_name=Doe&count=10&offset=0` to create a `request.query` that looks like:
+```javascript
+{
+  count: 10,
+  offset: 0,
+  filter: {
+    first_name: 'John', 
+    last_name: 'Doe'
+  }
+}
 ```
