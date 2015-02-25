@@ -87,7 +87,9 @@ server.route({
     handler: function (request, reply) { ... },
     plugins: {
       queryFilter: {
-        enabled: true
+        enabled: true,
+        ignoredKey: ['count', 'offset'], // Array will be concatenated with the ignoredKeys set at register
+        params: ['test_param'] // Array of request.params that will be put into filter object
       }
     }
   }
