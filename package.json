@@ -1,7 +1,7 @@
 {
   "name": "hapi-query-filters",
   "version": "1.0.0",
-  "description": "Hapi Plugin to Register Bookshelf Models",
+  "description": "Hapi Plugin to Convert Query Params to Filter Object",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
