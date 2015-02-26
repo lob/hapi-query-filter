@@ -73,12 +73,6 @@
     "===",
     "!=",
     "!=="
-
-Error: Parse error on line 75:
-..."!=",    "!=="    // etc    ],    "d
----------------------^
-Expecting 'EOF', '}', ':', ',', ']'
-// etc
     ],
     "disallowSpaceAfterPrefixUnaryOperators" : [
         "++",
