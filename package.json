@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "gulp test",
-    "enforce": "gulp enforce",
-    "coveralls": "gulp coveralls"
+    "test": "nyc _mocha test",
+    "enforce": "nyc check-coverage",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
     "joi": "^5.1.0"
   },
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.4",
     "eslint": "^4.0.0",
     "eslint-config-lob": "^3.0.0",
     "gulp": "^3.8.10",
@@ -39,9 +40,20 @@
     "gulp-jshint": "^1.9.0",
     "gulp-load-plugins": "^0.8.0",
     "gulp-mocha": "^2.0.0",
-    "hapi": "^8.1.0",
+    "hapi": "^16.0.0",
     "istanbul": "^0.3.5",
     "jshint-stylish": "^1.0.0",
-    "mocha": "^2.1.0"
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
+  },
+  "nyc": {
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
   }
 }
