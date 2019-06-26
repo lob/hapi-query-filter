@@ -1,10 +1,14 @@
-var expect  = require('chai').expect;
-var Hapi    = require('hapi');
+'use strict';
+
+const expect = require('chai').expect;
+const Hapi   = require('hapi');
 
 describe('query filter plugin', function () {
+
   describe('check configuration', function () {
+
     it('should fail to load with a bad schema', function () {
-      var server = new Hapi.Server();
+      const server = new Hapi.Server();
 
       server.register([
         {
@@ -17,10 +21,12 @@ describe('query filter plugin', function () {
         expect(err).to.be.instanceof(Error);
       });
     });
+
   });
 
   describe('query filtering', function () {
-    var server;
+
+    let server;
 
     beforeEach(function () {
       server = new Hapi.Server();
@@ -200,5 +206,7 @@ describe('query filter plugin', function () {
         done();
       });
     });
+
   });
+
 });

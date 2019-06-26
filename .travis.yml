@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - '0.10.32'
+  - 'lts/*'
 after_script:
-  - npm run enforce
-  - npm run coveralls
+  - yarn lint
+  - yarn enforce
+  - yarn coveralls
