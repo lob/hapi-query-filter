@@ -1,6 +1,6 @@
 {
   "name": "hapi-query-filter",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Hapi Plugin to Convert Query Params to Filter Object",
   "main": "index.js",
   "scripts": {
