@@ -1,0 +1,18 @@
+{
+  extends: "lob",
+  globals: {
+    "expect": false,
+    "Factory": false,
+    "jest": true
+  },
+  parserOptions: {
+    "ecmaVersion": 2018
+  },
+  rules: {
+    "no-shadow": 0,
+    "prefer-template": 0,
+    "prefer-reflect": 0,
+    "prefer-arrow-callback": 0,
+    "quotes": ["error", "single", { allowTemplateLiterals: true }]
+  }
+}
